@@ -1,0 +1,31 @@
+_id: req_60a3da69920f40e2bb96bc1e4439a0a9
+type: Request
+parentId: fld_5b7c0dbe197a46b8ada5fcf71b10be06
+modified: 1674906916267
+created: 1674752562526
+url: "{{ _.API }}/posts"
+name: Create post
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"postOwn": "63d50d1a1f9750a5e3e36c5c",
+    	"content": {
+    		"text": "I am Putin"
+    	}
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication: {}
+metaSortKey: -1674752562526
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

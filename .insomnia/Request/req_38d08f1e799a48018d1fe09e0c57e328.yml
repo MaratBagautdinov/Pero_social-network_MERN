@@ -1,0 +1,24 @@
+_id: req_38d08f1e799a48018d1fe09e0c57e328
+type: Request
+parentId: fld_77b00fcce96f44538587c3e20c8706e8
+modified: 1674900700201
+created: 1674898794199
+url: "{{ _.API }}/users/auth/me"
+name: me
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication:
+  type: bearer
+  token: "{{ _.TOKEN }}"
+  disabled: false
+metaSortKey: -1674754609752
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

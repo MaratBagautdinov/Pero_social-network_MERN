@@ -1,0 +1,29 @@
+_id: req_0d0ee4aa1edd45aca4f3657e07fc9dc3
+type: Request
+parentId: fld_5b7c0dbe197a46b8ada5fcf71b10be06
+modified: 1674906942643
+created: 1674904856371
+url: "{{ _.API }}/posts/like"
+name: Like post
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"likeSender":"63d50d1a1f9750a5e3e36c5c",
+    	"postID":"63d50d251f9750a5e3e36c5e"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication: {}
+metaSortKey: -1674356045943.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
