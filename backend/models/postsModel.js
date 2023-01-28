@@ -19,9 +19,16 @@ const postsSchema = mongoose.Schema({
         }]
     },
     likes: {
+        required: false,
         type: Number,
         default: 0
     },
+    likedUsers: [{
+        type: ObjectId,
+        ref: 'Users',
+        required: false,
+        default: []
+    }],
     date:{
         time: String,
         day: String

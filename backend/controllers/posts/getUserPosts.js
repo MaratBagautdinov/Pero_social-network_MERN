@@ -13,6 +13,8 @@ export const getUserPosts = asyncHandler(async(req, res) => {
     posts.map(p => {
         result.push({
             ...p,
+            likedUsers: [...p.likedUsers],
+            content:{...p.content, images: [...p.content.images]},
             userLogo: user.images.logo,
             userName: `${user.name.firstName} ${user.name.lastName}`
         })

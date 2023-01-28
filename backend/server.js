@@ -3,14 +3,12 @@ import morgan from "morgan";
 import dotenv from "dotenv"
 import colors from "colors"
 import cors from "cors"
-import mongoose, {connect} from "mongoose"
-// Config
-import {connectDB} from './config/db.js'
-// Middleware
-import {notFound, errorHandler} from './middleware/errorMiddleware.js'
+import mongoose from "mongoose"
+import multer from 'multer'
 // Routes
 import userRoutes from './routes/userRoutes.js'
 import postsRoutes from './routes/postsRoutes.js'
+import {protectAuth} from "./middleware/authMiddleware.js";
 
 dotenv.config()
 
@@ -20,15 +18,28 @@ mongoose.connect(process.env.MONGO_URI)
 const app = express()
 
 if(process.env.NODE_ENV === 'development') app.use(morgan('dev'))
+const storage = multer.diskStorage({
+    destination: (_,__,cb)=>{
+        cb(null, 'uploads')
+    },
+    filename: (_,file,cb)=>{
+        cb(null, file.originalname)
+    }
+})
+const upload = multer({storage})
+
 app.use(express.json())
 
 app.use(cors());
 
 app.use('/api/users', userRoutes)
 app.use('/api/posts', postsRoutes)
-
-app.use(errorHandler)
-// app.use(notFound)
+app.post('/api/upload', protectAuth, upload.single('image'), (req,res ) =>{
+    res.json({
+        url: `/uploads/${req.file.originalname}`
+    })
+})
+app.use('/uploads', express.static('uploads'))
 
 const PORT = process.env.PORT || 5000
 

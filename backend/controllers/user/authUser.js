@@ -12,8 +12,6 @@ import bcrypt from "bcryptjs";
 
 export const registerUser = asyncHandler(async (req, res) => {
     try {
-        const errors = validationResult(req)
-        if(!errors.isEmpty()) res.status(400).json(errors.array())
         const userBody = req.body
         const {email} = userBody
         const isHaveUser = await User.findOne({email})

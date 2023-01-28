@@ -8,21 +8,17 @@ import Posts from "../../models/postsModel.js";
 export const likePost = asyncHandler(async(req, res) => {
     const {likeSender, postID} = req.body
     const user = await User.findById(likeSender)
-    const checkLike = user.favoritePosts.find(i => i === postID)
+    const checkLike = !!user.favoritePosts.find(i => String(i) === String(postID))
+    const post = await Posts.findById(postID)
     if(checkLike){
-        user.favoritePosts = user.favoritePosts.filter(i => i !== postID)
+        post.likedUsers = post.likedUsers.filter(i => String(i) !== String(likeSender))
+        user.favoritePosts = user.favoritePosts.filter(i => String(i) !== String(postID))
     }else{
         user.favoritePosts.push(postID)
+        post.likedUsers.push(likeSender)
     }
+    post.likes = post.likedUsers.length
     await user.save()
-    const count = checkLike ? -1 : 1
-    Posts.findByIdAndUpdate(
-        {
-            postID
-        },
-        {
-            $inc: {likes: count}
-        }
-    )
-    res.json(checkLike)
+    await post.save()
+    res.json(post)
 })
