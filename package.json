@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node backend/server",
     "server": "nodemon backend/server",
-    "client": "npm run start --prefix front",
+    "client": "cd front && yarn dev",
     "dev": "concurrently \"npm run server\" \"npm run client\" "
   },
   "repository": "git+https://github.com/MaratBagautdinov/Pero.git",

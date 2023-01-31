@@ -16,7 +16,6 @@ export const delPost = asyncHandler(async(req, res) => {
     await post.likedUsers.map(async userID => {
             const id = String(userID)
             const user = await User.findById(id)
-            console.log(user)
             user.favoritePosts = user.favoritePosts.filter(id => id.toString() !== String(post._id))
             user.save()
         })
