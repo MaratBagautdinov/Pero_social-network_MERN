@@ -1,0 +1,58 @@
+.dialog{
+    display: flex;
+    flex-direction: column;
+}
+.dialog_list{
+    padding: 10px;
+}
+.dialog_list li{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+}
+.dialog_item_content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 5px;
+}
+.dialog_item_content a{
+    font-weight: 600;
+}
+.dialog_item_logo{
+    border-radius: 50%;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+}
+.dialog_item_logo img{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+.dialog_input{
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    padding-right: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+.dialog_input textarea{
+    width: 95%;
+    min-height: 50px;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    resize: none;
+}
+.dialog_input textarea::-webkit-scrollbar{
+    display: none;
+}
+.dialog_input textarea:focus{
+    outline: 0;
+}

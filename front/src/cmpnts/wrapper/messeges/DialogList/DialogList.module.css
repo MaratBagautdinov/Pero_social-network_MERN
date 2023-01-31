@@ -1,0 +1,55 @@
+.list{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    overflow-y: scroll;
+    box-shadow: inset -40px 0px 10px -45px rgba(0, 0, 0, .1);
+}
+.list::-webkit-scrollbar {
+    width: 5px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.list::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #c4c4c4;
+}
+
+.list::-webkit-scrollbar-track {
+    display: none;
+}
+.list li{
+    width: calc(100% - 30px);
+}.list li a{
+    padding: 10px 15px;
+}
+.list li:hover{
+    cursor: pointer;
+    background: linear-gradient(90deg, #fff 80%, rgba(255, 255, 255, 0));
+}
+.dlg_Item{
+    display: grid;
+    grid-template-columns: 60px auto;
+    align-items: center;
+    gap: 10px;
+
+}
+.list li .dlg_Item_img{
+    border-radius: 50%;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+}
+.dlg_Item_img img{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+.dlg_Item_name{
+    font-size: 18px;
+    cursor: pointer;
+}
