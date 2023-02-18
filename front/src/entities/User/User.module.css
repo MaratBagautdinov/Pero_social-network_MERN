@@ -1,0 +1,22 @@
+.profileInfo{
+    display: grid;
+    grid-template-columns:auto 1fr;
+    gap: 2rem;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.mainInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.otherInfo ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 18px;
+    font-weight: 600;
+}

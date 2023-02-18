@@ -13,11 +13,14 @@
     "@reduxjs/toolkit": "^1.9.2",
     "@rollup/plugin-alias": "^4.0.3",
     "@rollup/plugin-node-resolve": "^15.0.1",
+    "@vkontakte/icons": "^2.13.0",
+    "axios": "^1.2.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.0",
-    "sass": "^1.57.1"
+    "sass": "^1.57.1",
+    "zustand": "^4.3.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

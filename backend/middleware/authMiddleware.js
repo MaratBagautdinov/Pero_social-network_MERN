@@ -1,10 +1,10 @@
-import jwt from "jsonwebtoken";
+import {verify} from "jsonwebtoken";
 import {body} from 'express-validator'
 export const protectAuth = async(req, res, next)=>{
     let token = (req.headers.authorization || '').replace(/Bearer\s?/, '')
     if(token){
         try{
-            const decoded = jwt.verify(token, process.env.ACCESS_TOKEN)
+            const decoded = verify(token, process.env.ACCESS_TOKEN)
             req.userID = decoded.userId
             next()
         }catch (err){
