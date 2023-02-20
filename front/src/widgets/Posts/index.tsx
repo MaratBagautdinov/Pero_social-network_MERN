@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react'
-import s from './Posts.module.css'
+import s from './Posts.module.sass'
 import Post from '@/entities/Post'
 import usePostsStore from '@/widgets/Posts/model/usePostsStore'
 import { IPosts } from '@/widgets/Posts/model/types'

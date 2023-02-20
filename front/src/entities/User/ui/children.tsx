@@ -1,81 +1,94 @@
-import s from '../User.module.css'
+import s from '../User.module.sass'
 import { FC, useEffect, useState } from 'react'
-import { EditValue } from '@/shared/editValue'
 import { IUserState } from '@/entities/User/model/types'
-import BoolButtons from '@/entities/User/ui/boolButtons'
-import Logo from '@/entities/User/ui/Logo'
+import Logo from '@/widgets/Logo/Logo'
 import List from '@/shared/List'
+import Button from '@/shared/Button'
+import InputIcon from '@/shared/InputIcon'
 
-const Children: FC<{ store: IUserState; id: string }> = ({ store, id }) => {
+const Children: FC<{ store: IUserState; id: string }> = ({ store }) => {
 	const { user, getUser, updateData, addFriend, updateLogo } = store
-	useEffect(() => {}, [user])
+	const minData = {
+		location: { ...user.location },
+		profession: user.profession,
+		status: user.status
+	}
+	useEffect(() => {
+	}, [user])
 	const [edit, setEdit] = useState(false)
-	const [country, setCountry] = useState(user.location.country)
-	const [city, setCity] = useState(user.location.city)
-	const [status, setStatus] = useState(user.status)
-	const [profession, setProfession] = useState(user.profession)
-	let name = user.name.firstName + ' ' + user.name.lastName
+	const [info, setInfo] = useState(minData)
+	const name = user.name.firstName + ' ' + user.name.lastName
+	const disabled = !user.me
 	const updateUserData = async () => {
-		await updateData({
-			location: {
-				city,
-				country
-			},
-			profession,
-			status
-		})
-		await setEdit(false)
+		await updateData(info)
+		setEdit(false)
+	}
+	const cancel = () => {
+		setInfo(minData)
+		setEdit(false)
+	}
+	const updateInfo = (data = minData) => {
+		setInfo(data)
+		setEdit(true)
 	}
 	return (
 		<div className={s.profileInfo}>
 			<Logo
+				addFriend={addFriend}
+				subscribers={user.subscribers}
+				userID={user._id}
 				getUser={getUser}
 				userLogo={user.images.logo}
 				updateLogo={updateLogo}
 				userName={user.name.firstName}
 			/>
 			<div className={s.user}>
-				<div className={s.mainUser}>
-					<h2>{name}</h2>
-					<p>
-						Status:{' '}
-						<EditValue edit={edit} value={status} setValue={setStatus} />
-					</p>
-				</div>
+				{edit ? (
+					<div className={s.buttons}>
+						<Button action={updateUserData} title='Сохранить' />
+						<Button active={false} action={cancel} title='Отмена' />
+					</div>
+				) : <div className={s.mainUser}>
+					<span><h2>{name}</h2> {user.birthday}</span>
+				</div>}
 				<div className={s.otherUser}>
 					<ul>
-						<li>Birthday: {user.birthday}</li>
-						<li>
-							Location:{' '}
-							<EditValue edit={edit} value={country} setValue={setCountry} />,{' '}
-							<EditValue edit={edit} value={city} setValue={setCity} />
+						<li>Status<InputIcon
+							disabled={disabled}
+							value={info.status}
+							setValue={v => updateInfo({ ...info, status: v })}
+							placeholder='status'
+						/></li>
+						<li className={s.location}>
+							<span>Location</span>
+							<div>
+								<InputIcon
+									disabled={disabled}
+									value={info.location.country}
+									setValue={v => updateInfo({ ...info, location: { ...info.location, country: v } })}
+									placeholder='country'
+								/>
+								<InputIcon
+									disabled={disabled}
+									value={info.location.city}
+									setValue={v => updateInfo({ ...info, location: { ...info.location, city: v } })}
+									placeholder='city'
+								/>
+							</div>
 						</li>
 						<li>
-							Profession:{' '}
-							<EditValue
-								edit={edit}
-								value={profession}
-								setValue={setProfession}
+							Profession
+							<InputIcon
+								disabled={disabled}
+								value={info.profession}
+								setValue={v => updateInfo({ ...info, profession: v })}
+								placeholder='profession'
 							/>
 						</li>
-						{user.me && <List subscribers={user.subscribers} />}
 					</ul>
 				</div>
-				{edit ? (
-					<span>
-						<button onClick={updateUserData}>Save</button>
-						<button onClick={() => setEdit(false)}>Close</button>
-					</span>
-				) : (
-					<BoolButtons
-						addFriend={addFriend}
-						me={user.me}
-						id={user._id}
-						setEdit={setEdit}
-						subscribers={user.subscribers}
-					/>
-				)}
 			</div>
+			<List subscribers={user.subscribers} />
 		</div>
 	)
 }

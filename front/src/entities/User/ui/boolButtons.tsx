@@ -2,18 +2,15 @@
 import { FC, useContext, useEffect, useState } from 'react'
 import { InitID } from '@/processes/model/context'
 import { TUserMin } from '@/entities/User/model/types'
+import Button from "@/shared/Button";
 
 type TBoolButtons = {
-	me: boolean
-	setEdit: (param: boolean) => void
 	addFriend: (id: string) => void
 	subscribers: TUserMin[]
 	id: string
 }
 
 const BoolButtons: FC<TBoolButtons> = ({
-	me,
-	setEdit,
 	addFriend,
 	subscribers,
 	id
@@ -26,13 +23,7 @@ const BoolButtons: FC<TBoolButtons> = ({
 		setSub(!sub)
 	}
 	useEffect(() => {}, [subscribers])
-	return me ? (
-		<button onClick={() => setEdit(true)}>
-			<img src='/assets/main/settings.png' alt='set' />
-		</button>
-	) : (
-		<button onClick={subscribe}>{sub ? 'unsubscribe' : 'subscribe'}</button>
-	)
+	return <Button action={subscribe} title={sub ? 'unsubscribe' : 'subscribe'} active={!sub}/>
 }
 
 export default BoolButtons

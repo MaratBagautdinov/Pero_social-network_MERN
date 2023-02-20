@@ -13,7 +13,7 @@ const LinkIcon: FC<TLinkIcon> = ({ icon, title, path }) => {
 			<span>
 				<img src={`/assets/main/${icon}`} alt={title} />
 			</span>
-			{title}
+			<div>{title}</div>
 		</Link>
 	)
 }

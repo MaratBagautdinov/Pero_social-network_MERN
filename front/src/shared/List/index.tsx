@@ -1,21 +1,16 @@
 import s from './List.module.sass'
 import { FC } from 'react'
-import { Link } from 'react-router-dom'
 import { TUserMin } from '@/entities/User/model/types'
+import LogoLink from "@/shared/LogoLink";
 
-type TList = {
-	subscribers: TUserMin[]
-}
-const List: FC<TList> = ({ subscribers }) => {
+const List: FC<{subscribers: TUserMin[]}> = ({ subscribers }) => {
 	return (
-		<li>
-			{'My subscribers: '}
+		<li className={s.List}>
+			<h2>Подписчики</h2>
 			<ul>
-				{subscribers.map(u => (
-					<li key={u.id}>
-						<Link to={`../profile/${u.id}`}>{u.name}</Link>
-					</li>
-				))}
+				{subscribers
+					.map(u =>
+						<LogoLink key={u.id} id={u.id} name={u.name} logo={u.logo}/>)}
 			</ul>
 		</li>
 	)

@@ -20,6 +20,6 @@ export const protectAuth = async(req, res, next)=>{
 }
 
 export const validatorRegister = [
-    body('email', 'Incorrect email format').isEmail(),
+    body('email', 'Incorrect email format').isEmail({}),
     body('password', 'The minimum password length is 4').isLength({min:4}),
 ]

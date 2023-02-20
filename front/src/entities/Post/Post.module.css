@@ -24,16 +24,13 @@
 .postInfo > .postInfoLogo{
     position: relative;
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    width: 5rem;
+    height: 5rem;
     overflow: hidden;
 }
 .postInfo > div > img{
     position: absolute;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    width: 100%;
+    height: 100%;
 }
 .postInfoName{
     display: flex;
@@ -60,10 +57,20 @@
     flex-direction: row;
     align-items: center;
 }
+.buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem
+}
 .favorite p{
     font-size: 1.5rem;
 }
 .favorite *{
     color: #ea2d2d;
     font-size: 2rem;
+}
+@media (max-width: 800px) {
+    .postInfoName {
+        gap: 1rem
+    }
 }

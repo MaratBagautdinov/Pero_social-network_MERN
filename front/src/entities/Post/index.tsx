@@ -3,6 +3,7 @@ import { FC, useState } from 'react'
 import { Icon24DeleteOutline, Icon24PenOutline } from '@vkontakte/icons'
 import { IPost } from '@/entities/Post/model/types'
 import LikePost from '@/features/likePost'
+import Button from "@/shared/Button";
 
 const Post: FC<IPost> = ({ post, me, likePost, updatePost, delPost, page }) => {
 	const [edit, setEdit] = useState(false)
@@ -52,8 +53,10 @@ const Post: FC<IPost> = ({ post, me, likePost, updatePost, delPost, page }) => {
 						value={value}
 						onChange={e => setValue(e.target.value)}
 					/>
-					<button onClick={saveEdit}>save</button>
-					<button onClick={() => setEdit(!edit)}>close</button>
+					<div className={s.buttons}>
+						<Button title={'Save'} action={saveEdit}/>
+						<Button title={'Close'} active={false} action={() => setEdit(!edit)}/>
+					</div>
 				</>
 			) : (
 				<div className={s.postContent}>{post.content.text}</div>

@@ -1,0 +1,61 @@
+.logo
+  height: 100%
+  width: 100%
+  display: grid
+  gap: 1rem
+  grid-template-rows: 1fr auto
+  grid-area: L
+
+  .imgCover
+    border-radius: 15px
+    box-shadow: 0 4px 28px rgba(0, 0, 0, 0.4)
+    overflow: hidden
+    position: relative
+    z-index: 1
+    display: flex
+    justify-content: center
+    width: 100%
+    height: 100%
+
+    .openEdit
+      display: none
+      position: absolute
+      z-index: 3
+      height: 100%
+      width: 100%
+      background-color: rgba(185, 185, 185, 0.56)
+      top: 0
+      margin: auto
+
+      button
+        margin: auto
+
+    &:hover > .openEdit
+      display: flex
+
+    img
+      position: absolute
+      height: 100%
+      z-index: 1
+
+  .editForm
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-around
+    height: 100%
+    padding: 2rem
+
+    .hidden
+      display: none
+
+    > .btnForm
+      display: flex
+      flex-direction: column
+      width: 100%
+      gap: 2rem
+      justify-content: space-around
+
+@media (max-width: 1200px)
+  .Logo
+    grid-template-rows: 70vw auto

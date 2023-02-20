@@ -1,15 +1,6 @@
 import s from './Navbar.module.sass'
 import LinkIcon from '@/shared/LinkIcon'
 import { FC } from 'react'
-import {
-	Icon20Users,
-	Icon20User,
-	Icon28Messages,
-	Icon24Newsfeed,
-	Icon24Settings,
-	Icon20DoorArrowRightOutline
-} from '@vkontakte/icons'
-const size = 30
 const Links = ['profile', 'news', 'peoples']
 const Navbar: FC<{ loginID: string; logout: () => void }> = ({
 	logout,
@@ -21,14 +12,14 @@ const Navbar: FC<{ loginID: string; logout: () => void }> = ({
 				{Links.map(l => (
 					<LinkIcon
 						key={l}
-						icon={`${l}.png`}
+						icon={`${l}.svg`}
 						title={l}
 						path={`${l}/${l === 'profile' ? loginID : ''}`}
 					/>
 				))}
-				<span onClick={() => logout()}>
-					<LinkIcon key={'Exit2'} icon='exit.png' title='Exit' path={'../'} />
-				</span>
+				<div onClick={() => logout()}>
+					<LinkIcon key={'Exit2'} icon='exit.svg' title='Exit' path={'../'} />
+				</div>
 			</nav>
 		</div>
 	)

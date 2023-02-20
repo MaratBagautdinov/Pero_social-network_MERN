@@ -4,13 +4,16 @@ import { FC } from 'react'
 type TInputIcon = {
 	placeholder: string
 	value: string
+	disabled?: boolean
+	type?: 'text' | 'date' | 'password'
 	setValue: (vl: string) => void
 }
-const InputIcon: FC<TInputIcon> = ({ placeholder, value, setValue }) => {
+const InputIcon: FC<TInputIcon> = ({type='text',disabled=false, placeholder, value, setValue }) => {
 	return (
 		<span className={s.InputIcon}>
 			<input
-				type='text'
+				disabled={disabled}
+				type={type}
 				placeholder={placeholder}
 				value={value}
 				onChange={e => setValue(e.target.value)}

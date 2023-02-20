@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
+import './index.sass'
 import CheckAuth from '@/processes/CheckAuth'
 import { BrowserRouter } from 'react-router-dom'
 

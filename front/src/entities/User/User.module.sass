@@ -1,0 +1,77 @@
+.profileInfo
+  display: grid
+  grid-template-columns: 24vw auto
+  grid-template-rows: 24vw auto
+  grid-template-areas: "L I" "S S"
+  width: 100%
+  gap: 3rem
+  font-weight: bold
+  font-size: 1rem
+  grid-area: I
+
+.info
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+
+.mainUser > span
+  display: flex
+  gap: 1rem
+  flex-direction: row
+  align-items: end
+  margin-bottom: 2rem
+
+  h2
+    margin: 0
+    line-height: 100%
+
+.mainInfo
+  display: flex
+  flex-direction: column
+
+.otherUser > ul
+  display: flex
+  flex-direction: column
+  gap: 1.5rem
+
+.buttons
+  display: flex
+  flex-direction: row
+  gap: 1rem
+  margin-bottom: 1rem
+
+  *
+    padding: .5rem 1rem
+    font-size: 1rem
+
+.location
+  display: grid
+
+  > div
+    display: grid
+    width: 100%
+    grid-template-columns: 1fr 1fr
+
+@media (max-width: 1200px)
+  .profileInfo
+    grid-template-rows: 35vw auto
+  .mainUser h2
+    font-size: 1.3rem
+
+@media (max-width: 800px)
+  .profileInfo
+    grid-template-columns: 100%
+    grid-template-rows: 70vw auto 2fr
+    gap: 2rem
+    grid-template-areas: "L" "I" "S"
+
+    .user *
+      font-size: 1.5rem
+
+      h2
+        font-size: 2rem
+        line-height: 120%
+
+@media (max-width: 600px)
+  .otherUser *
+    font-size: 1.2rem !important

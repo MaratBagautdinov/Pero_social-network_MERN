@@ -2,21 +2,20 @@
   "name": "pero",
   "version": "1.0.0",
   "description": "",
-  "main": "backend/server.js",
+  "main": "front/index.html",
   "scripts": {
-    "start": "node backend/server",
     "server": "nodemon backend/server",
     "client": "cd front && yarn dev",
-    "dev": "concurrently \"npm run server\" \"npm run client\" "
+    "clientBuild": "cd front && yarn build",
+    "preview": "cd front && yarn preview",
+    "start": "concurrently \"yarn server\" \"yarn preview\"",
+    "build": "concurrently \"yarn server\" \"yarn clientBuild\"",
+    "dev": "concurrently \"yarn server\" \"yarn client\" "
   },
   "repository": "git+https://github.com/MaratBagautdinov/Pero.git",
   "type": "module",
   "author": "Marat Bagautdinov",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/MaratBagautdinov/Workout/issues"
-  },
-  "homepage": "https://github.com/MaratBagautdinov/Workout#readme",
   "dependencies": {
     "@nestjs/passport": "^9.0.3",
     "bcryptjs": "^2.4.3",

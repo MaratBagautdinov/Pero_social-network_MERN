@@ -1,7 +1,7 @@
 import s from './UsersExplorerList.module.sass'
 import { FC, useEffect } from 'react'
-import UsersExplorerItem from '@/entities/UserExplorerItem'
 import useUsersStore from '@/widgets/UsersExplorer/model/useUsersStore'
+import LogoLink from '@/shared/LogoLink'
 
 type TUsersExplorerList = {}
 const UsersExplorerList: FC<TUsersExplorerList> = ({}) => {
@@ -13,7 +13,7 @@ const UsersExplorerList: FC<TUsersExplorerList> = ({}) => {
 	return (
 		<ul className={s.UsersExplorerList}>
 			{users.map(u => (
-				<UsersExplorerItem id={u.id} name={u.name} logo={u.logo} key={u.id} />
+				<LogoLink id={u.id} name={u.name} logo={u.logo} key={u.id} />
 			))}
 		</ul>
 	)

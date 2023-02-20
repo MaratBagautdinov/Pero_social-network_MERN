@@ -14,9 +14,11 @@ const NewsPage = () => {
 	return (
 		<div className={s.NewsPage}>
 			<h2>Channels</h2>
-			{channels.map(chn => (
-				<LogoLink key={chn.id} id={chn.id} name={chn.name} logo={chn.logo} />
-			))}
+			<div className={s.channels}>
+				{channels.map(chn => (
+					<LogoLink key={chn.id} id={chn.id} name={chn.name} logo={chn.logo} />
+				))}
+			</div>
 			<h2>News</h2>
 			<Posts id={meID} page='news' />
 		</div>

@@ -1,6 +1,3 @@
-// @route   POST /api/posts/:userID
-// @access  Public
-
 import User from '../../models/userModel.js'
 import asyncHandler from 'express-async-handler'
 import Posts from '../../models/postsModel.js'
@@ -28,7 +25,6 @@ export const getUserNews = asyncHandler(async (req, res) => {
 			userName: item.userName
 		}
 	})
-
 	const result = []
 	posts.map(p => {
 		result.push({

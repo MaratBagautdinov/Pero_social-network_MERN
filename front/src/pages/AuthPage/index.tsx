@@ -4,6 +4,7 @@ import { ILogin, IRegister } from '@/processes/types'
 import AuthLogin from '@/features/auth/login'
 import Registration from '@/features/auth/Registration'
 import { useNavigate } from 'react-router-dom'
+import Button from "@/shared/Button";
 interface IAuthLogin {
 	authLogin: (params: ILogin) => void
 	authRegister: (params: IRegister) => void
@@ -49,17 +50,21 @@ const AuthPage: FC<IAuthLogin> = ({
 	}
 	return (
 		<div className={s.AuthLogin}>
-			<div>
-				<h2 onClick={() => setAuth(true)}>Log in</h2>
-				<h2 onClick={() => setAuth(false)}>Registration</h2>
-			</div>
-			{auth ? (
-				<AuthLogin login={login} emailStore={emailStore} />
-			) : (
-				<Registration reg={reg} />
-			)}
-			{err}
-			{error}
+			<img className={s.wave} src="/WaveLeft.png" alt="wave" />
+				<div className={s.wrapper}>
+					<div className={s.switch}>
+						<Button active={auth} title="Авторизация" action={()=>setAuth(true)}/>
+						<Button active={!auth} title="Регистрация" action={()=>setAuth(false)}/>
+					</div>
+					{auth ? (
+						<AuthLogin login={login} emailStore={emailStore} />
+						) : (
+							<Registration s={s} reg={reg} />
+							)}
+					{err}
+					{error}
+				</div>
+			<img className={s.wave} src="/Wave.png" alt="wave" />
 		</div>
 	)
 }
