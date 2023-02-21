@@ -31,6 +31,7 @@
 .postInfo > div > img{
     position: absolute;
     height: 100%;
+    width: 100%;
 }
 .postInfoName{
     display: flex;
