@@ -1,5 +1,3 @@
-import { TCreatePost } from '@/widgets/Posts/model/types'
-
 export type TPost = {
 	_id: string
 	postOwn: string

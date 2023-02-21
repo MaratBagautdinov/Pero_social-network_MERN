@@ -1,6 +1,7 @@
 import User from '../../models/userModel.js'
 import asyncHandler from 'express-async-handler'
 import Posts from '../../models/postsModel.js'
+import StringToDate from '../../helpers/StringToDate.js'
 
 export const getUserNews = asyncHandler(async (req, res) => {
 	const user = await User.findById(String(req.userID)).lean()
@@ -33,5 +34,6 @@ export const getUserNews = asyncHandler(async (req, res) => {
 			userName: p.userName
 		})
 	})
-	res.json({ posts: result.reverse() })
+	result.sort((p1, p2) => StringToDate(`${p2.date.day}.${p2.date.time}`) - StringToDate(`${p1.date.day}.${p1.date.time}`))
+	res.json({ posts: result })
 })

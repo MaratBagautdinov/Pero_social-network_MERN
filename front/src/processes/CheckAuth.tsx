@@ -1,12 +1,14 @@
-import React, { createContext, FC, useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import Layout from '@/widgets/Layout'
 import AuthPage from '@/pages/AuthPage'
 import useAuthStore from './model/useAuthStore'
 import { InitID } from '@/processes/model/context'
+
 const CheckAuth: FC = () => {
 	const { authID, authLogin, email, logout, error, authRegister } =
 		useAuthStore()
-	useEffect(() => {}, [authID, error])
+	useEffect(() => {
+	}, [authID, error])
 	return !!authID ? (
 		<InitID.Provider
 			value={authID}

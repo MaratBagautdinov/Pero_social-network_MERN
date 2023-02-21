@@ -1,4 +1,4 @@
-.postItem{
+.postItem {
     gap: 25px;
     width: calc(100% - 40px);
     background-color: #fff;
@@ -9,67 +9,82 @@
     display: flex;
     flex-direction: column;
 }
-.postHeader{
+
+.postHeader {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
 }
-.postInfo{
+
+.postInfo {
     display: flex;
     flex-direction: row;
     gap: 15px;
     align-items: center;
 }
-.postInfo > .postInfoLogo{
+
+.postInfo > .postInfoLogo {
     position: relative;
     border-radius: 50%;
     width: 5rem;
     height: 5rem;
     overflow: hidden;
+    background-size: cover;
+    background-position: center;
 }
-.postInfo > div > img{
+
+.postInfo > div > img {
     position: absolute;
     height: 100%;
     width: 100%;
 }
-.postInfoName{
+
+.postInfoName {
     display: flex;
     flex-direction: column;
     gap: 15px;
     font-size: large;
     font-weight: 600;
 }
-.postInfoName .postDate{
+
+.postInfoName .postDate {
     font-size: medium;
     font-weight: 400;
 }
-.postInterface{
+
+.postInterface {
     display: flex;
     flex-direction: row;
     gap: 30px;
 }
-.postInterface img, .favorite{
+
+.postInterface img, .favorite {
     height: 2rem;
     cursor: pointer;
 }
-.favorite{
+
+.favorite {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-.buttons{
+
+.buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8rem
 }
-.favorite p{
+
+.favorite p {
     font-size: 1.5rem;
 }
-.favorite *{
+
+.favorite * {
     color: #ea2d2d;
     font-size: 2rem;
 }
+
 @media (max-width: 800px) {
     .postInfoName {
         gap: 1rem

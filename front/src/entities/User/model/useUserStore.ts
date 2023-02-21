@@ -40,5 +40,5 @@ export default create<IUserState>((set, get) => ({
 	},
 	addFriend: async id => await instance().put(`/users/add-friend/${id}`),
 	updateData: async data => await instance().put(`/users/update`, data),
-	updateLogo: async img => await instance().put(`/users/updateLogo`, img)
+	updateLogo: async img => await instance().post(`/users/updateLogo`, img)
 }))

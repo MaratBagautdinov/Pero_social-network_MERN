@@ -1,9 +1,8 @@
 import s from './Post.module.css'
 import { FC, useState } from 'react'
-import { Icon24DeleteOutline, Icon24PenOutline } from '@vkontakte/icons'
 import { IPost } from '@/entities/Post/model/types'
 import LikePost from '@/features/likePost'
-import Button from "@/shared/Button";
+import Button from '@/shared/Button'
 
 const Post: FC<IPost> = ({ post, me, likePost, updatePost, delPost, page }) => {
 	const [edit, setEdit] = useState(false)
@@ -16,15 +15,11 @@ const Post: FC<IPost> = ({ post, me, likePost, updatePost, delPost, page }) => {
 		<div className={s.postItem}>
 			<div className={s.postHeader}>
 				<div className={s.postInfo}>
-					<div className={s.postInfoLogo}>
-						<img
-							src={`/users/${post.userLogo || 'user.svg'}`}
-							alt={post.postOwn}
-						/>
-					</div>
+					<div className={s.postInfoLogo}
+							 style={{ backgroundImage: `url(${import.meta.env.VITE_API}uploads/${post.userLogo || 'user.svg'})` }} />
 					<div className={s.postInfoName}>
 						<p>{post.userName}</p>
-						<p className={s.postDate}>{post.date.day}</p>
+						<p className={s.postDate}>{post.date.day} {post.date.time}</p>
 					</div>
 				</div>
 				<div className={s.postInterface}>
@@ -36,12 +31,8 @@ const Post: FC<IPost> = ({ post, me, likePost, updatePost, delPost, page }) => {
 					/>
 					{page === 'profile' && me && (
 						<>
-							<div onClick={() => setEdit(!edit)}>
-								<Icon24PenOutline />
-							</div>
-							<div onClick={() => delPost(post._id)}>
-								<Icon24DeleteOutline />
-							</div>
+							<img alt='stylus' onClick={() => setEdit(!edit)} src={'/assets/main/stylus.png'} />
+							<img alt='delete' onClick={() => delPost(post._id)} src={'/assets/main/delete.png'} />
 						</>
 					)}
 				</div>
@@ -54,8 +45,8 @@ const Post: FC<IPost> = ({ post, me, likePost, updatePost, delPost, page }) => {
 						onChange={e => setValue(e.target.value)}
 					/>
 					<div className={s.buttons}>
-						<Button title={'Save'} action={saveEdit}/>
-						<Button title={'Close'} active={false} action={() => setEdit(!edit)}/>
+						<Button title={'Save'} action={saveEdit} />
+						<Button title={'Close'} active={false} action={() => setEdit(!edit)} />
 					</div>
 				</>
 			) : (

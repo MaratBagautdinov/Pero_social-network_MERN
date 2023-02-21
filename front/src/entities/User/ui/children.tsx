@@ -40,7 +40,6 @@ const Children: FC<{ store: IUserState; id: string }> = ({ store }) => {
 				getUser={getUser}
 				userLogo={user.images.logo}
 				updateLogo={updateLogo}
-				userName={user.name.firstName}
 			/>
 			<div className={s.user}>
 				{edit ? (

@@ -1,4 +1,3 @@
-import s from './Routes.module.sass'
 import React, { FC } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import NewsPage from '@/pages/NewsPage'
@@ -7,6 +6,7 @@ import DialogsPage from '@/pages/DialogsPage'
 import UsersExplorerPage from '@/pages/usersExplorerPage'
 import SettingsPage from '@/pages/SettingsPage'
 import UndefinedPage from '@/pages/UndefinedPage'
+
 const Routers: FC = () => {
 	return (
 		<Routes>

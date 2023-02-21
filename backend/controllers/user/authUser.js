@@ -1,12 +1,6 @@
-// @desc    Create user
-// @route   POST /api/user/create
-// @access  Public
-
 import User from '../../models/userModel.js'
 import { GenToken } from '../../helpers/generateToken.js'
 import asyncHandler from 'express-async-handler'
-import { validatorRegister } from '../../middleware/authMiddleware.js'
-import { validationResult } from 'express-validator'
 import { Error } from 'mongoose'
 import bcrypt from 'bcryptjs'
 
@@ -17,7 +11,7 @@ export const registerUser = asyncHandler(async (req, res) => {
 		const isHaveUser = await User.findOne({ email })
 		if (isHaveUser) {
 			res.status(400)
-			throw new Error("Oh, that email's taken!")
+			throw new Error('Oh, that email\'s taken!')
 		}
 		const user = await User.create(userBody)
 		const token = GenToken(user._id)

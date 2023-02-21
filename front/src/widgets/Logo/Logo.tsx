@@ -9,12 +9,11 @@ type TLogo = {
 	userID: string
 	userLogo: string
 	subscribers: TUserMin[]
-	userName: string
 	addFriend: (id: string) => void
 	updateLogo: (img: any) => void
 	getUser: (img: any) => void
 }
-const Logo: FC<TLogo> = ({ addFriend, subscribers, userID, getUser, userLogo, userName, updateLogo }) => {
+const Logo: FC<TLogo> = ({ addFriend, subscribers, userID, getUser, userLogo, updateLogo }) => {
 	const meID = useContext(InitID)
 	const [edit, setEdit] = useState(false)
 	const sendLogo = async (e: any) => {
@@ -44,11 +43,11 @@ const Logo: FC<TLogo> = ({ addFriend, subscribers, userID, getUser, userLogo, us
 					</div>
 				</div>
 			) : (
-				<div className={s.imgCover}>
+				<div className={s.imgCover}
+						 style={{ backgroundImage: `url(${import.meta.env.VITE_API}uploads/${userLogo || 'user.svg'})` }}>
 					{userID === meID && <div className={s.openEdit}>
 						<Button title='Update logo' action={() => setEdit(true)} />
 					</div>}
-					<img src={`/users/${userLogo || 'user.svg'}`} alt={userName} />
 				</div>
 			)}
 			{userID !== meID && <BoolButtons
