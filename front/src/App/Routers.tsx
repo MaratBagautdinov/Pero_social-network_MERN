@@ -10,10 +10,10 @@ import UndefinedPage from '@/pages/UndefinedPage'
 const Routers: FC = () => {
 	return (
 		<Routes>
+			<Route element={<UsersExplorerPage />} path='/' />
 			<Route element={<NewsPage />} path='news/*' />
 			<Route element={<ProfilePage />} path='profile/:id' />
 			<Route element={<DialogsPage />} path='dialogs/:id' />
-			<Route element={<UsersExplorerPage />} path='peoples/*' />
 			<Route element={<SettingsPage />} path='settings/*' />
 			<Route element={<UndefinedPage />} path='/*' />
 		</Routes>

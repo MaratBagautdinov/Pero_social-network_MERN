@@ -1,11 +1,9 @@
 import s from './Navbar.module.sass'
 import LinkIcon from '@/shared/LinkIcon'
 import { FC } from 'react'
-const Links = ['profile', 'news', 'peoples']
-const Navbar: FC<{ loginID: string; logout: () => void }> = ({
-	logout,
-	loginID
-}) => {
+
+const Navbar: FC<{ loginID: string; logout: () => void }> = ({ logout, loginID }) => {
+	const Links = ['profile', 'news', 'peoples']
 	return (
 		<div className={s.Navbar}>
 			<nav>
@@ -14,7 +12,7 @@ const Navbar: FC<{ loginID: string; logout: () => void }> = ({
 						key={l}
 						icon={`${l}.svg`}
 						title={l}
-						path={`${l}/${l === 'profile' ? loginID : ''}`}
+						path={`${l === 'peoples' ? '../' : l}/${l === 'profile' ? loginID : ''}`}
 					/>
 				))}
 				<div onClick={() => logout()}>
