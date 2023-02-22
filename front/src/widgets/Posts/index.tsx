@@ -28,7 +28,7 @@ const Posts: FC<IPosts> = ({ id, page }) => {
 		<>
 			{isProfile && me && <PostForm createPost={createPost} />}
 			<div className={s.Posts}>
-				{isLoading &&
+				{isLoading ?
 					list.map(p => (
 						<Post
 							key={p._id}
@@ -39,7 +39,7 @@ const Posts: FC<IPosts> = ({ id, page }) => {
 							me={me}
 							page={page}
 						/>
-					))}
+					)) : <img src='/assets/loading.gif' alt='loading' width='100' />}
 			</div>
 		</>
 	)

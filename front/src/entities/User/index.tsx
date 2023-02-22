@@ -8,7 +8,7 @@ const User: FC<{ id: string }> = ({ id }) => {
 	useEffect(() => {
 		getUser(id)
 	}, [getUser, id])
-	return (isLoading && <Children store={store} id={id} />) || null
+	return isLoading ? <Children store={store} id={id} /> : <img src='/assets/loading.gif' alt='loading' width='100' />
 }
 
 export default User

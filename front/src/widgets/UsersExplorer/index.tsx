@@ -5,17 +5,17 @@ import LogoLink from '@/shared/LogoLink'
 
 type TUsersExplorerList = {}
 const UsersExplorerList: FC<TUsersExplorerList> = ({}) => {
-	const getUsers = useUsersStore(state => state.getUsers)
+	const { getUsers, isLoading } = useUsersStore()
 	useEffect(() => {
 		getUsers()
 	}, [getUsers])
 	const users = useUsersStore(state => state.users)
 	return (
-		<ul className={s.UsersExplorerList}>
+		isLoading ? <ul className={s.UsersExplorerList}>
 			{users.map(u => (
 				<LogoLink id={u.id} name={u.name} logo={u.logo} key={u.id} />
 			))}
-		</ul>
+		</ul> : <img src='/assets/loading.gif' alt='loading' width='100' />
 	)
 }
 
