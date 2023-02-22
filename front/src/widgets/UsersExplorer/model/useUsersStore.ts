@@ -7,11 +7,14 @@ interface IUserState {
 	isLoading: boolean
 	getUsers: () => void
 }
+
 export default create<IUserState>((set, get) => ({
 	users: [],
 	isLoading: false,
 	getUsers: async () => {
-		const res = await getUsers()
-		set({ users: res })
+		await getUsers().then(res => {
+			set({ users: res })
+			set({ isLoading: true })
+		})
 	}
 }))
