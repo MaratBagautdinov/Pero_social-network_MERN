@@ -9,11 +9,6 @@ export interface IRegister {
 		firstName: string
 		lastName: string
 	}
-	location: {
-		country: string
-		city: string
-	}
-	birthday: string
 }
 export interface IUserState {
 	authID: string

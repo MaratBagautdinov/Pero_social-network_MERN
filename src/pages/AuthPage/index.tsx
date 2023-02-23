@@ -27,22 +27,17 @@ const AuthPage: FC<IAuthLogin> = ({ authLogin, error, emailStore, authRegister }
 		const {
 			email,
 			password,
-			location: { country, city },
-			birthday,
 			name: { lastName, firstName }
 		} = params
 		if (
 			email &&
 			password &&
-			country &&
-			city &&
-			birthday &&
 			lastName &&
 			firstName
 		) {
 			await authRegister(params)
 			await authLogin({ email: params.email, password: params.password })
-			await nav('/news')
+			await nav('/')
 		} else setErr('Fill in all the fields!')
 	}
 	return (

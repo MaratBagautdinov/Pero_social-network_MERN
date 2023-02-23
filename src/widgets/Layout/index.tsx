@@ -1,7 +1,7 @@
 import s from './Layout.module.sass'
 import React, { FC } from 'react'
 import Navbar from '@/widgets/Navbar'
-import Routers from '@/app/Routers'
+import Routers from '@/App/Routers'
 
 type TLayout = {
 	loginID: string
