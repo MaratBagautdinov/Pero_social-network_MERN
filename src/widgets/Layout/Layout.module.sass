@@ -1,0 +1,26 @@
+.Layout
+  display: grid
+  width: 100%
+  grid-template-columns: 18% 82%
+
+  .main
+    display: flex
+    flex-direction: column
+    padding: 2rem 4rem
+    z-index: 5
+
+@media (max-width: 1200px)
+  .Layout
+    gap: 4%
+    grid-template-columns: 14% 82%
+
+@media (max-width: 1000px)
+  .Layout
+    grid-template-columns: unset
+
+    .main
+      padding-bottom: 10rem
+
+@media (max-width: 600px)
+  .Layout .main
+    padding: 1rem 2rem 10rem 2rem

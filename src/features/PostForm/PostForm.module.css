@@ -1,0 +1,46 @@
+.NewPost{
+    width: 100%;
+}
+.inputCover{
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.inputCover textarea{
+    border: none;
+    width: calc(100% - 40px);
+    padding: 20px;
+    font-size: 18px;
+    resize: none;
+}
+.inputCover textarea:focus{
+    outline: 0;
+}
+.NewPostInterface{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    justify-content: flex-end;
+    gap: 50px;
+    align-items: center;
+}
+.NewPostInterface img{
+    height: 30px;
+    cursor: pointer;
+}
+.NewPostInterface > div{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.NewPostInterface > button{
+    border: none;
+    box-shadow: 0 4px 28px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    background-color: #689603;
+    border-radius: 15px;
+    padding: 15px 30px;
+    font-size: medium;
+    color: #ffffff;
+    font-weight: 600;
+}

@@ -1,19 +1,33 @@
 {
-  "name": "pero",
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "license": "MIT",
-  "version": "1.0.0",
-  "author": "Marat Bagautdinov",
-  "description": "Social network Pero",
-  "repository": "https://github.com/MaratBagautdinov/Pero_social-network_MERN",
   "scripts": {
-    "server": "cd backend && yarn server",
-    "client": "cd front && yarn dev",
-    "build": "cd front && yarn build",
-    "preview": "cd front && yarn preview",
-    "start": "concurrently \"yarn server\" \"yarn preview\"",
-    "dev": "concurrently \"yarn server\" \"yarn client\""
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.2",
+    "@rollup/plugin-alias": "^4.0.3",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "axios": "^1.2.6",
+    "path": "^0.12.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.8.0",
+    "sass": "^1.57.1",
+    "url": "^0.11.0",
+    "zustand": "^4.3.2"
   },
   "devDependencies": {
-    "concurrently": "^7.6.0"
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0"
   }
 }
