@@ -13,7 +13,7 @@ const Post: FC<IPost> = ({ post, me, likePost, updatePost, delPost, page }) => {
 	}
 	return (
 		<div className={s.postItem}>
-			<div className={s.postHeader}>
+			<div className={`${s.postHeader} ${page === 'profile' ? s.me : ''}`}>
 				<div className={s.postInfo}>
 					<div className={s.postInfoLogo}
 							 style={{ backgroundImage: `url(${import.meta.env.VITE_API}uploads/${post.userLogo || 'user.svg'})` }} />
@@ -22,7 +22,7 @@ const Post: FC<IPost> = ({ post, me, likePost, updatePost, delPost, page }) => {
 						<p className={s.postDate}>{post.date.day} {post.date.time}</p>
 					</div>
 				</div>
-				<div className={s.postInterface}>
+				<div className={`${s.postInterface} ${page === 'profile' && s.me}`}>
 					<LikePost
 						likedUsers={post.likedUsers}
 						likePost={likePost}

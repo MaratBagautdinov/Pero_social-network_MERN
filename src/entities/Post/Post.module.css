@@ -86,7 +86,26 @@
 }
 
 @media (max-width: 800px) {
+    .postItem{
+         font-size: 1.5rem;
+    }
     .postInfoName {
         gap: 1rem
+    }
+    .postHeader.me{
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .postInterface.me{
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 1.5rem;
+        gap: 0;
+    }
+    .buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem
     }
 }
