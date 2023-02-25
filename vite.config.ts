@@ -14,7 +14,8 @@ export default defineConfig({
 		rollupOptions: {
 			input: {
 				main: path.resolve('index.html'),
-				error: path.resolve('404.html')
+				error: path.resolve('404.html'),
+				offline: path.resolve('offline.html')
 			}
 		}
 	},
