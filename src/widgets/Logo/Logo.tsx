@@ -44,7 +44,7 @@ const Logo: FC<TLogo> = ({ addFriend, subscribers, userID, getUser, userLogo, up
 				</div>
 			) : (
 				<div className={s.imgCover}
-						 style={{ backgroundImage: `url(${import.meta.env.VITE_API}uploads/${userLogo || 'user.svg'})` }}>
+						 style={{ backgroundImage: `url(${userLogo || '/assets/main/user.svg'})` }}>
 					{userID === meID && (<div className={s.openEdit}>
 						<Button title='Update logo' action={() => setEdit(true)} />
 					</div>)}
