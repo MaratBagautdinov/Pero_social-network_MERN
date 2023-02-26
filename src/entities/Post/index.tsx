@@ -16,7 +16,7 @@ const Post: FC<IPost> = ({ post, me, likePost, updatePost, delPost, page }) => {
 			<div className={`${s.postHeader} ${me && page === 'profile' && s.me}`}>
 				<div className={s.postInfo}>
 					<div className={s.postInfoLogo}
-							 style={{ backgroundImage: `url(${import.meta.env.VITE_API}uploads/${post.userLogo || 'user.svg'})` }} />
+							 style={{ backgroundImage: `url(${post.userLogo || '/assets/main/user.svg'})` }} />
 					<div className={s.postInfoName}>
 						<p>{post.userName}</p>
 						<p className={s.postDate}>{post.date.day} {post.date.time}</p>

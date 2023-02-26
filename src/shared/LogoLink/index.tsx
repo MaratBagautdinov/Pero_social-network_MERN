@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const LogoLink: FC<TUserMin> = ({ logo, id, name }) => {
 	return (
 		<Link to={`../profile/${id}`} className={s.LogoLink}>
-			<div style={{ backgroundImage: `url(${import.meta.env.VITE_API}uploads/${logo || 'user.svg'})` }} />
+			<div style={{ backgroundImage: `url(${logo || '/assets/main/user.svg'})` }} />
 			<p>{name}</p>
 		</Link>
 	)
