@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { IUserState } from '@/entities/User/model/types'
 import instance from '@/entities/instance'
+import axios from 'axios'
 
 export default create<IUserState>((set, get) => ({
 	user: {
@@ -40,5 +41,9 @@ export default create<IUserState>((set, get) => ({
 	},
 	addFriend: async id => await instance().put(`/users/add-friend/${id}`),
 	updateData: async data => await instance().put(`/users/update`, data),
-	updateLogo: async img => await instance().post(`/users/updateLogo`, img)
+	updateLogo: async img => {
+		await axios.post("https://sparkling-ruby-fez.cyclic.app", img)
+			.then(res=> console.log(res))
+		//instance().post(`/users/updateLogo`, res)
+	}
 }))
