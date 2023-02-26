@@ -42,7 +42,7 @@ export default create<IUserState>((set, get) => ({
 	addFriend: async id => await instance().put(`/users/add-friend/${id}`),
 	updateData: async data => await instance().put(`/users/update`, data),
 	updateLogo: async img => {
-		await axios.post("https://sparkling-ruby-fez.cyclic.app", img)
+		await axios.post("https://sparkling-ruby-fez.cyclic.app/upload", img)
 			.then(res=> console.log(res))
 		//instance().post(`/users/updateLogo`, res)
 	}
