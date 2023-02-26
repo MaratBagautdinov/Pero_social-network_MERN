@@ -48,7 +48,7 @@ export default create<IUserState>((set, get) => ({
 		await axios.post("https://sparkling-ruby-fez.cyclic.app/upload", img)
 			.then(async res=> {
 				set({user: {...user, images:{...user.images, logo: res.data}}})
-				await instance().post(`/users/updateLogo`, res.data)
+				await instance().post(`/users/updateLogo`, { title: res.data.Location })
 			})
 		set({ logoLoading: false })
 	}
