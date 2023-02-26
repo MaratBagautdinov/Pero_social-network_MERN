@@ -7,7 +7,7 @@ import Button from '@/shared/Button'
 import InputIcon from '@/shared/InputIcon'
 
 const Children: FC<{ store: IUserState; id: string }> = ({ store }) => {
-	const { user, getUser, updateData, addFriend, updateLogo } = store
+	const { user, updateData, addFriend, updateLogo, logoLoading } = store
 	const minData = {
 		location: { ...user.location },
 		profession: user.profession,
@@ -37,7 +37,7 @@ const Children: FC<{ store: IUserState; id: string }> = ({ store }) => {
 				addFriend={addFriend}
 				subscribers={user.subscribers}
 				userID={user._id}
-				getUser={getUser}
+				logoLoading={logoLoading}
 				userLogo={user.images.logo}
 				updateLogo={updateLogo}
 			/>

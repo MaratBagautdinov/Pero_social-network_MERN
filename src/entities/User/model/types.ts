@@ -31,6 +31,7 @@ export interface IUser {
 export interface IUserState {
 	user: IUser
 	isLoading: boolean
+	logoLoading: boolean
 	getUser: (id: string) => void
 	addFriend: (id: string) => void
 	updateLogo: (data: any) => void

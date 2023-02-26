@@ -30,6 +30,7 @@ export default create<IUserState>((set, get) => ({
 		me: false
 	},
 	isLoading: false,
+	logoLoading: false,
 	getUser: async id => {
 		set({ isLoading: false })
 		await instance()
@@ -42,8 +43,13 @@ export default create<IUserState>((set, get) => ({
 	addFriend: async id => await instance().put(`/users/add-friend/${id}`),
 	updateData: async data => await instance().put(`/users/update`, data),
 	updateLogo: async img => {
+		const { user } = get()
+		set({ logoLoading: true })
 		await axios.post("https://sparkling-ruby-fez.cyclic.app/upload", img)
-			.then(res=> console.log(res))
-		//instance().post(`/users/updateLogo`, res)
+			.then(async res=> {
+				set({user: {...user, images:{...user.images, logo: res.data}}})
+				await instance().post(`/users/updateLogo`, res.data)
+			})
+		set({ logoLoading: false })
 	}
 }))
