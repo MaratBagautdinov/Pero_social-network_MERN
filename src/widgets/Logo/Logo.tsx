@@ -42,8 +42,8 @@ const Logo: FC<TLogo> = ({ addFriend, logoLoading, subscribers, userID, userLogo
 								<Button
 									// @ts-ignore
 									action={() => ref.current.click()}
-									title='Add photo' />
-								<Button action={() => setEdit(false)} title='Close' active={false} />
+									title='Добавить фото или короткое видео' />
+								<Button action={() => setEdit(false)} title='Отмена' active={false} />
 							</div>
 						</div>
 					) : (
@@ -51,7 +51,7 @@ const Logo: FC<TLogo> = ({ addFriend, logoLoading, subscribers, userID, userLogo
 							{!userLogo && meID === userID && <Cursor />}
 							{userID === meID && (
 								<div className={s.openEdit}>
-									<Button title='Update logo' action={() => setEdit(true)} />
+									<Button title='Добавить аватарку' action={() => setEdit(true)} />
 								</div>)}
 						</div>
 					))}
