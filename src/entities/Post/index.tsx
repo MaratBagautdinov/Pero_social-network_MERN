@@ -3,6 +3,7 @@ import { FC, useState } from 'react'
 import { IPost } from '@/entities/Post/model/types'
 import LikePost from '@/features/likePost'
 import Button from '@/shared/Button'
+import { Link } from 'react-router-dom'
 
 const Post: FC<IPost> = ({ post, me, likePost, updatePost, delPost, page }) => {
 	const [edit, setEdit] = useState(false)
@@ -15,10 +16,10 @@ const Post: FC<IPost> = ({ post, me, likePost, updatePost, delPost, page }) => {
 		<div className={s.postItem}>
 			<div className={`${s.postHeader} ${me && page === 'profile' && s.me}`}>
 				<div className={s.postInfo}>
-					<div className={s.postInfoLogo}
+					<Link to={`../profile/${post.postOwn}`} className={s.postInfoLogo}
 							 style={{ backgroundImage: `url(${post.userLogo || '/assets/main/user.svg'})` }} />
 					<div className={s.postInfoName}>
-						<p>{post.userName}</p>
+						<Link to={`../profile/${post.postOwn}`}>{post.userName}</Link>
 						<p className={s.postDate}>{post.date.day} {post.date.time}</p>
 					</div>
 				</div>

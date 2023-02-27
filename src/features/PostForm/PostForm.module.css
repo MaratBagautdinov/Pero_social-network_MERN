@@ -1,5 +1,11 @@
 .NewPost{
     width: 100%;
+    position: relative;
+}
+.NewPost > span{
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
 }
 .inputCover{
     background-color: #fff;

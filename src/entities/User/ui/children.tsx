@@ -5,6 +5,7 @@ import Logo from '@/widgets/Logo/Logo'
 import List from '@/shared/List'
 import Button from '@/shared/Button'
 import InputIcon from '@/shared/InputIcon'
+import Cursor from '@/shared/Cursor'
 
 const Children: FC<{ store: IUserState; id: string }> = ({ store }) => {
 	const { user, updateData, addFriend, updateLogo, logoLoading } = store
@@ -52,6 +53,7 @@ const Children: FC<{ store: IUserState; id: string }> = ({ store }) => {
 				</div>}
 				<div className={s.otherUser}>
 					<ul>
+						{!info.status && user.me && <Cursor />}
 						<li>Status<InputIcon
 							disabled={disabled}
 							value={info.status}

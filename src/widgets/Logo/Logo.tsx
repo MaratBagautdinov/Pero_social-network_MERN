@@ -4,6 +4,7 @@ import { InitID } from '@/processes/model/context'
 import Button from '@/shared/Button'
 import BoolButtons from '@/entities/User/ui/boolButtons'
 import { TUserMin } from '@/entities/User/model/types'
+import Cursor from '@/shared/Cursor'
 
 type TLogo = {
 	userID: string
@@ -46,11 +47,12 @@ const Logo: FC<TLogo> = ({ addFriend, logoLoading, subscribers, userID, userLogo
 							</div>
 						</div>
 					) : (
-						<div className={s.imgCover}
-								 style={{ backgroundImage: `url(${userLogo || '/assets/main/user.svg'})` }}>
-							{userID === meID && (<div className={s.openEdit}>
-								<Button title='Update logo' action={() => setEdit(true)} />
-							</div>)}
+						<div className={s.imgCover} style={{ backgroundImage: `url(${userLogo || '/assets/main/user.svg'})` }}>
+							{!userLogo && meID === userID && <Cursor />}
+							{userID === meID && (
+								<div className={s.openEdit}>
+									<Button title='Update logo' action={() => setEdit(true)} />
+								</div>)}
 						</div>
 					))}
 			{userID !== meID && <BoolButtons
