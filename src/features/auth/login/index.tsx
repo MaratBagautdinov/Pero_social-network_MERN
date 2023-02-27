@@ -13,10 +13,10 @@ const AuthLogin: FC<IAuthLogin> = ({ login, emailStore }) => {
 	const [password, setPassword] = useState('')
 	return (
 		<form onSubmit={e => e.preventDefault()}>
-			<InputIcon placeholder='login' value={email} setValue={setLogin} />
+			<InputIcon placeholder='email' value={email} setValue={setLogin} />
 			<InputIcon
 				type='password'
-				placeholder='password'
+				placeholder='пароль'
 				value={password}
 				setValue={setPassword}
 			/>

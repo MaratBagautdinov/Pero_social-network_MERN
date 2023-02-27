@@ -18,7 +18,7 @@ const PostForm: FC<TPostForm> = ({ createPost }) => {
             <textarea
 							value={content}
 							onChange={(e) => setContent(e.target.value)}
-							placeholder='Write new post...' />
+							placeholder='Напиши новый пост...' />
 				<div className={s.NewPostInterface}>
 					<Button action={addPost} title='Отправить' />
 				</div>

@@ -47,7 +47,7 @@ const Logo: FC<TLogo> = ({ addFriend, logoLoading, subscribers, userID, userLogo
 							</div>
 						</div>
 					) : (
-						<div className={s.imgCover} style={{ backgroundImage: `url(${userLogo || '/assets/main/user.svg'})` }}>
+						<div className={`${s.imgCover} ${!userLogo && s.noLogo}`} style={{ backgroundImage: `url(${userLogo || '/assets/main/logo.svg'})` }}>
 							{!userLogo && meID === userID && <Cursor />}
 							{userID === meID && (
 								<div className={s.openEdit}>

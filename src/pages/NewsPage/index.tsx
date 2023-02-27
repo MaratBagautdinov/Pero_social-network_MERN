@@ -13,13 +13,13 @@ const NewsPage = () => {
 	}, [meID, getChannels])
 	return (
 		<div className={s.NewsPage}>
-			<h2>Channels</h2>
+			<h2>Мои каналы</h2>
 			<div className={s.channels}>
 				{channels.map(chn => (
 					<LogoLink key={chn.id} id={chn.id} name={chn.name} logo={chn.logo} />
 				))}
 			</div>
-			<h2>News</h2>
+			<h2>Новости</h2>
 			<Posts id={meID} page='news' />
 		</div>
 	)

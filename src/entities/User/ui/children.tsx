@@ -54,31 +54,31 @@ const Children: FC<{ store: IUserState; id: string }> = ({ store }) => {
 				<div className={s.otherUser}>
 					<ul>
 						{!info.status && user.me && <Cursor />}
-						<li>Status<InputIcon
+						<li>Статус<InputIcon
 							disabled={disabled}
 							value={info.status}
 							setValue={v => updateInfo({ ...info, status: v })}
 							placeholder='status'
 						/></li>
 						<li className={s.location}>
-							<span>Location</span>
+							<span>Локация</span>
 							<div>
 								<InputIcon
 									disabled={disabled}
 									value={info.location.country}
 									setValue={v => updateInfo({ ...info, location: { ...info.location, country: v } })}
-									placeholder='country'
+									placeholder='страна'
 								/>
 								<InputIcon
 									disabled={disabled}
 									value={info.location.city}
 									setValue={v => updateInfo({ ...info, location: { ...info.location, city: v } })}
-									placeholder='city'
+									placeholder='город'
 								/>
 							</div>
 						</li>
 						<li>
-							Profession
+							Профессия
 							<InputIcon
 								disabled={disabled}
 								value={info.profession}

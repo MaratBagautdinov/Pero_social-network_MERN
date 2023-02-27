@@ -23,7 +23,7 @@ const BoolButtons: FC<TBoolButtons> = ({
 		setSub(!sub)
 	}
 	useEffect(() => {}, [subscribers])
-	return <Button action={subscribe} title={sub ? 'unsubscribe' : 'subscribe'} active={!sub}/>
+	return <Button action={subscribe} title={sub ? 'отписаться' : 'подписаться'} active={!sub}/>
 }
 
 export default BoolButtons
