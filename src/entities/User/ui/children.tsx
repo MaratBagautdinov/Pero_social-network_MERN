@@ -89,7 +89,7 @@ const Children: FC<{ store: IUserState; id: string }> = ({ store }) => {
 					</ul>
 				</div>
 			</div>
-			<List subscribers={user.subscribers} />
+			<List subscribers={user.subscribers} title='Подписчики'/>
 		</div>
 	)
 }

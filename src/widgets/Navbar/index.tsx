@@ -1,11 +1,16 @@
 import s from './Navbar.module.sass'
 import LinkIcon from '@/shared/LinkIcon'
-import { FC } from 'react'
+import { FC, useState } from 'react'
+import Alert from '@/shared/Alert'
+import { useLocation } from 'react-router-dom'
 
 const Navbar: FC<{ loginID: string; logout: () => void }> = ({ logout, loginID }) => {
 	const Links = ['profile', 'news', 'peoples']
+	const {pathname} = useLocation()
+	const [exit, setExit] = useState(false)
 	return (
 		<div className={s.Navbar}>
+			{exit && <Alert logout={()=>logout()} exit={()=>setExit(false)} />}
 			<nav>
 				{Links.map(l => (
 					<LinkIcon
@@ -15,8 +20,8 @@ const Navbar: FC<{ loginID: string; logout: () => void }> = ({ logout, loginID }
 						path={`${l === 'peoples' ? '../' : l}/${l === 'profile' ? loginID : ''}`}
 					/>
 				))}
-				<div onClick={() => logout()}>
-					<LinkIcon key={'Exit2'} icon='exit.svg' title='Exit' path={'../'} />
+				<div onClick={() => setExit(true)}>
+					<LinkIcon key={'Exit2'} icon='exit.svg' title='Exit' path={pathname} />
 				</div>
 			</nav>
 		</div>
